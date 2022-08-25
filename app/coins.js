@@ -1,6 +1,6 @@
 "use strict";
 
-const btc = require("./coins/hth.js");
+const hth = require("./coins/hth.js");
 
 module.exports = {
 	"HTH": hth,
