@@ -3,9 +3,9 @@
 const Decimal = require("decimal.js");
 const Decimal8 = Decimal.clone({ precision:8, rounding:8 });
 
-const btcFun = require("./btcFun.js");
+const btcFun = require("./hthFun.js");
 
-const blockRewardEras = [ new Decimal8(50) ];
+const blockRewardEras = [ new Decimal8(2500) ];
 for (let i = 1; i < 34; i++) {
 	let previous = blockRewardEras[i - 1];
 	blockRewardEras.push(new Decimal8(previous).dividedBy(2));
@@ -14,15 +14,15 @@ for (let i = 1; i < 34; i++) {
 const currencyUnits = [
 	{
 		type:"native",
-		name:"BTC",
+		name:"HTH",
 		multiplier:1,
 		default:true,
-		values:["", "btc", "BTC"],
+		values:["", "hth", "HTH"],
 		decimalPlaces:8
 	},
 	{
 		type:"native",
-		name:"mBTC",
+		name:"mHTH",
 		multiplier:1000,
 		values:["mbtc"],
 		decimalPlaces:5
@@ -60,8 +60,8 @@ const currencyUnits = [
 ];
 
 module.exports = {
-	name:"Bitcoin",
-	ticker:"BTC",
+	name:"Help The Homeless",
+	ticker:"HTH",
 	logoUrlsByNetwork:{
 		"main":"./img/network-mainnet/logo.svg",
 		"test":"./img/network-testnet/logo.svg",
@@ -81,15 +81,15 @@ module.exports = {
 		"regtest": "#777"
 	},
 	siteTitlesByNetwork: {
-		"main":"Bitcoin Explorer",
+		"main":"HTH Explorer",
 		"test":"Testnet Explorer",
 		"regtest":"Regtest Explorer",
 		"signet":"Signet Explorer",
 	},
 	demoSiteUrlsByNetwork: {
-		"main": "https://bitcoinexplorer.org",
-		"test": "https://testnet.bitcoinexplorer.org",
-		"signet": "https://signet.bitcoinexplorer.org",
+		"main": "https://chain.hth.world",
+		"test": "https://testnet.chain.hth.world",
+		"signet": "https://signet.chain.hth.world",
 	},
 	knownTransactionsByNetwork: {
 		main: "f4184fc596403b9d638783cf57adfe4c75c605f6356fbc91338530e9831e9e16",
@@ -113,16 +113,16 @@ module.exports = {
 		"regtest": new Decimal(21000000),
 		"signet": new Decimal(21000000)
 	},
-	targetBlockTimeSeconds: 600,
-	targetBlockTimeMinutes: 10,
+	targetBlockTimeSeconds: 60,
+	targetBlockTimeMinutes: 1,
 	currencyUnits:currencyUnits,
-	currencyUnitsByName:{"BTC":currencyUnits[0], "mBTC":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
+	currencyUnitsByName:{"HTH":currencyUnits[0], "mHTH":currencyUnits[1], "bits":currencyUnits[2], "sat":currencyUnits[3]},
 	baseCurrencyUnit:currencyUnits[3],
 	defaultCurrencyUnit:currencyUnits[0],
 	feeSatoshiPerByteBucketMaxima: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 50, 75, 100, 150],
 	
 	halvingBlockIntervalsByNetwork: {
-		"main": 210000,
+		"main": 525600,
 		"test": 210000,
 		"regtest": 150,
 		"signet": 210000
