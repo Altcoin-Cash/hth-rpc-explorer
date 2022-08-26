@@ -10,7 +10,7 @@ const maxOldSpaceSize = parseInt(process.env.BTCEXP_OLD_SPACE_MAX_SIZE, 10) || 1
 v8.setFlagsFromString(`--max_old_space_size=${maxOldSpaceSize}`);
 debug(`Set max_old_space_size to ${maxOldSpaceSize} MB`);
 
-app.set('port', process.env.PORT || process.env.BTCEXP_PORT || 3002);
+app.set('port', process.env.PORT || process.env.BTCEXP_PORT || 80);
 app.set('host', process.env.BTCEXP_HOST || '127.0.0.1');
 
 const server = app.listen(app.get('port'), app.get('host'), () => {
