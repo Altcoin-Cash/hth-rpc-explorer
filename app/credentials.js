@@ -10,10 +10,13 @@ const btcAuth = btcUri.auth ? btcUri.auth.split(':') : [];
 module.exports = {
 	rpc: {
 		host: btcUri.hostname || process.env.BTCEXP_BITCOIND_HOST || "127.0.0.1",
-		port: btcUri.port || process.env.BTCEXP_BITCOIND_PORT || 8332,
+		port: btcUri.port || process.env.BTCEXP_BITCOIND_PORT || 14410,
 		username: btcAuth[0] || process.env.BTCEXP_BITCOIND_USER,
 		password: btcAuth[1] || process.env.BTCEXP_BITCOIND_PASS,
-		cookie: btcUri.query.cookie || process.env.BTCEXP_BITCOIND_COOKIE || path.join(os.homedir(), '.bitcoin', '.cookie'),
+		//		username:"username",
+		//		password:"password"
+		
+		cookie: btcUri.query.cookie || process.env.BTCEXP_BITCOIND_COOKIE || path.join(os.homedir(), '.helpthehomeless', '.cookie'),
 		timeout: parseInt(btcUri.query.timeout || process.env.BTCEXP_BITCOIND_RPC_TIMEOUT || 5000),
 	},
 
