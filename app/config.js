@@ -31,7 +31,7 @@ while (s3BucketPath.endsWith("/")) {
 const coins = require("./coins.js");
 const credentials = require("./credentials.js");
 
-const currentCoin = process.env.BTCEXP_COIN || "BTC";
+const currentCoin = process.env.BTCEXP_COIN || "HTH";
 
 const rpcCred = credentials.rpc;
 
@@ -94,14 +94,14 @@ const slowDeviceMode = (process.env.BTCEXP_SLOW_DEVICE_MODE.toLowerCase() == "tr
 
 module.exports = {
 	host: process.env.BTCEXP_HOST || "127.0.0.1",
-	port: process.env.PORT || process.env.BTCEXP_PORT || 3002,
+	port: process.env.PORT || process.env.BTCEXP_PORT || 14410,
 
 	baseUrl: baseUrl,
 
 	coin: currentCoin,
 
 	displayDefaults: {
-		displayCurrency: (process.env.BTCEXP_DISPLAY_CURRENCY || "btc"),
+		displayCurrency: (process.env.BTCEXP_DISPLAY_CURRENCY || "hth"),
 		localCurrency: (process.env.BTCEXP_LOCAL_CURRENCY || "usd"),
 		theme: (process.env.BTCEXP_UI_THEME || "dark"),
 		timezone: (process.env.BTCEXP_UI_TIMEZONE || "local")
@@ -111,7 +111,7 @@ module.exports = {
 
 	privacyMode: (process.env.BTCEXP_PRIVACY_MODE.toLowerCase() == "true"),
 	slowDeviceMode: slowDeviceMode,
-	demoSite: (process.env.BTCEXP_DEMO.toLowerCase() == "true"),
+	demoSite: (process.env.BTCEXP_DEMO.toLowerCase() == "false"),
 	queryExchangeRates: (process.env.BTCEXP_NO_RATES.toLowerCase() != "true" && process.env.BTCEXP_PRIVACY_MODE.toLowerCase() != "true"),
 	noInmemoryRpcCache: (process.env.BTCEXP_NO_INMEMORY_RPC_CACHE.toLowerCase() == "true"),
 	
@@ -266,7 +266,7 @@ module.exports = {
 
 	/* 18 */	{name:"UTXO Set", url:"./utxo-set", desc:"View the latest UTXO Set.", iconClass:"bi-list-columns"},
 
-	/* 19 */	{name:"Holidays", url:"./holidays", desc:"Curated list of Bitcoin 'Holidays'.", iconClass:"bi-calendar-heart"},
+	/* 19 */	{name:"Holidays", url:"./holidays", desc:"Curated list of HTH 'Holidays'.", iconClass:"bi-calendar-heart"},
 	]
 };
 
